@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+    background: transparent;
+    width: 8px;
+}
+
+::-webkit-scrollbar-button {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}

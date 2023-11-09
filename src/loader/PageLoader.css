@@ -1,0 +1,82 @@
+.loader {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(20deg, #B22222, #FF7F50);
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sprinter {
+    width: 300px;
+    height: 300px;
+    transition: all .5s ease-in-out;
+    background-color: rgba(211, 211, 211, 40%);
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+
+    animation-name: load;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    animation-iteration-count: infinite;
+}
+
+@media (max-width: 375px) {
+    .sprinter {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+.content1 {
+    width: 50%;
+    height: 50%;
+    background-color: var(--secondary-text-color);
+}
+
+.content2 {
+    width: 50%;
+    height: 50%;
+    background-color: var(--primary-text-color);
+}
+
+.content3 {
+    width: 50%;
+    height: 50%;
+    background-color: var(--secondary-color);
+}
+
+.content4 {
+    width: 50%;
+    height: 50%;
+    background-color: var(--primary-color);
+}
+
+@keyframes content {
+    0% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        opacity: 100%;
+    }
+}
+
+.content1,
+.content2,
+.content3,
+.content4 {
+    animation-name: content;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}

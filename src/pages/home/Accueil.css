@@ -1,0 +1,36 @@
+.banner-filter {
+    width: inherit;
+    min-height: 558px;
+    background-color: var(--dark-gradient);
+}
+
+.banner-text p {
+    color: var(--primary-text-color) !important;
+}
+
+.nav-item>a {
+    color: var(--primary-text-color);
+    transition: all .3s;
+}
+
+.nav-item>a:hover {
+    color: var(--primary-color);
+}
+
+.active-link>a {
+    color: var(--primary-color);
+    font-size: var(--active-link-font-size);
+    font-weight: 700;
+}
+
+.primary-color {
+    color: #006D77 !important;
+}
+
+.bg-form {
+    width: 100%;
+    height: auto;
+    background-image: url('../../assets/imgs/home/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;background-clip: border-box;
+}

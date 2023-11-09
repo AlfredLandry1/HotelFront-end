@@ -1,0 +1,205 @@
+:root {
+  --primary-color: #B22222;
+  --primary-hover-color: #e62b2b;
+
+  --secondary-color: #FF7F50;
+  --secondary-hover-color: #e67147;
+
+  --dark-hover-color: #222222;
+
+  --primary-text-color: #F6F6F6;
+  --secondary-text-color: #333333;
+
+  --bg-dark: #0E0E0E;
+
+  --h1: 34px;
+  --link-font-size: 16px;
+  --active-link-font-size: 18px;
+
+  --dark-gradient: rgba(0, 0, 0, 30%);
+}
+
+body {
+  font-family: -apple-system, Montserrat, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--primary-text-color) !important;
+  color: var(--primary-text-color);
+}
+
+/* class css like bootstrap */
+h1,
+.h1 {
+  color: var(--primary-text-color) !important;
+  font-size: var(--h1) !important;
+  font-weight: bolder !important;
+  text-transform: uppercase !important;
+  /* text-align: justify !important; */
+}
+
+p,
+.p {
+  color: var(--secondary-text-color) !important;
+  font-weight: normal;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+@media (max-width: 280px) {
+
+  h1,
+  .h1 {
+    font-size: 25px !important;
+  }
+
+  p,
+  .p {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 281px) and (max-width: 920px) {
+
+  h1,
+  .h1 {
+    font-size: 30px !important;
+  }
+
+  p,
+  .p {
+    font-size: 15px !important;
+  }
+}
+
+.dark-text {
+  color: var(--secondary-text-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+big {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+button span {
+  outline: 0 !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover-color) !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color) !important;
+  border: none !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover-color) !important;
+}
+
+.btn-danger {
+  background-color: var(--secondary-text-color) !important;
+  border: none !important;
+}
+
+.btn-danger:hover {
+  background-color: var(--dark-hover-color) !important;
+}
+
+.toast-header {
+  color: var(--primary-color) !important;
+}
+
+.bg-filter {
+  background-color: var(--dark-gradient);
+}
+
+.top-90 {
+  top: 90% !important;
+}
+
+.start-40 {
+  left: 45% !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-dark {
+  background-color: var(--bg-dark) !important;
+}
+
+.bg-glass-subtle {
+  background-color: rgba(255, 255, 255, .1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.bg-glass {
+  background-color: rgba(14, 14, 14, .7) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.bg-gradient-primary {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(30deg, var(--primary-color), var(--secondary-color));
+  background-size: cover;
+}
+
+.bg-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 558px;
+}
+
+.alert-primary {
+  background-color: var(--primary-color);
+}
+
+.rate {
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.rate:hover {
+  color: var(--primary-color);
+}
+
+.form-check-input:checked[type=checkbox],
+.form-check-input:checked[type=radio] {
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
+button:disabled {
+  cursor: wait !important;
+}
+
+.ancre {
+  opacity: 85% !important;
+  transition: all ease-in-out .3s;
+}
+.ancre:hover {
+  opacity: 100% !important;
+}

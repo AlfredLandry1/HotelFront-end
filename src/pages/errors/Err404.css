@@ -1,0 +1,26 @@
+/* .error-type {
+    line-height: 80%;
+    font-size: calc(100% - 1%) !important;
+} */
+
+.error-content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-circle1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    clip-path: circle();
+    opacity: 8%;
+    background-color: var(--primary-color);
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    z-index: -1;
+}
