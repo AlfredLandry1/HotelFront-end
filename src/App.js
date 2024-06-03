@@ -15,6 +15,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import ClearStorage from "./functions/ClearStorage";
+import ReservationThirdStep from "./pages/reservation/ReservationThirdStep";
 
 function App() {
   if (localStorage.getItem("ReservationStepOne")) {
@@ -35,6 +36,14 @@ function App() {
             <Route
               path="ReservartionSecondStep"
               element={<ReservartionSecondStep />}
+            />
+          ) : (
+            <></>
+          )}
+          {localStorage.getItem("ReservationStepTwo") ? (
+            <Route
+              path="reservationThirdStep"
+              element={<ReservationThirdStep />}
             />
           ) : (
             <></>

@@ -72,6 +72,7 @@ function ReservationFirstStep() {
     try {
       localStorage.setItem("ReservationStepOne", JSON.stringify(formValues));
     } catch (e) {
+      alert("Une erreur c'est produite. veillez reeseller . . .");
       console.error(
         "Une erreur c'est produite lors de l'ajout des donnees en memoire",
         e
@@ -91,7 +92,7 @@ function ReservationFirstStep() {
         <div className="row flex-column-reverse flex-lg-row justify-content-between">
           <div className="col-12 col-lg-7">
             <div className="card bg-transparent border-0 shadow-md">
-              {localStorage.getItem("ReservationStepOne") ? (
+              {localStorage.getItem("ReservationStepTwo") ? (
                 <div className="text-sm-end">
                   <Link
                     to="/ReservartionSecondStep"
@@ -189,7 +190,7 @@ function ReservationFirstStep() {
                               type="email"
                               placeholder="Ex: landry@gmail.com"
                               spellCheck
-                              maxLength="30"
+                              maxLength="60"
                               required
                               className={`form-control text-primary ${
                                 formik.errors.mail ? "is-invalid" : ""
@@ -266,12 +267,11 @@ function ReservationFirstStep() {
                             name="phone"
                             id="phone"
                             type="number"
-                            placeholder="2376xxxxxxxx"
-                            spellCheck
+                            placeholder="Ex: +2376xxxxxxxx"
+                            min="0"
                             className={`form-control text-primary ${
                               formik.errors.phone ? "is-invalid" : ""
                             } mb-3`}
-                            maxLength="30"
                             required
                           />
                           <ErrorMessage
@@ -354,13 +354,12 @@ function ReservationFirstStep() {
                           className="form-check-label text-breack mb-5"
                           htmlFor="consentement"
                         >
-                          En cliquant sur suivant vous acceptez{" "}
-                          <Link>la politique de l'hotel</Link> et sa{" "}
+                          En cliquant sur suivant vous acceptez
+                          <Link>la politique de l'hotel</Link> et sa
                           <Link to="">
                             la politique de confidentialit&eacute;
                           </Link>
                         </h6>
-
                         <button
                           type="submit"
                           disabled={!formik.isValid || formik.isSubmitting}

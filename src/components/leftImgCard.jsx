@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 /**
  *
@@ -60,12 +61,12 @@ function LeftImgCard({
               <p>{content}</p>
             </div>
             {whitBtn === "yes" ? (
-              <a
+              <Link
                 className="btn btn-secondary px-4 mb-5 d-inline-flex align-items-center"
-                href="http:/#"
+                to="/ReservationFirstStep"
               >
                 {linkName} <span className={`fs-3 ps-2 ${iconName}`}></span>
-              </a>
+              </Link>
             ) : (
               ""
             )}

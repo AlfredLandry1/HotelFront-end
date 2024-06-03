@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import NewsletterAPI from "../apis/NewsletterAPI";
+import FormValidated from "./FormValidated";
 
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string()
+  nom: Yup.string()
     .required("Entrez votre nom")
     .min(4, "Votre nom devrait avoir 4 caracteres minimum")
     .max(30, "Vous avez atteint la limitation de caracteres"),
-  lastName: Yup.string()
+  prenom: Yup.string()
     .required("Entrez votre prenom")
     .min(4, "Votre prenom devrait avoir 4 caracteres minimum")
     .max(30, "Vous avez atteint la limitation de caracteres"),
@@ -25,15 +26,30 @@ function Newsletter() {
   }, []);
 
   const initialValues = {
-    firstName: "",
-    lastName: "",
+    nom: "",
+    prenom: "",
     email: "",
   };
 
   function handleSubmit(formValues, onSubmittingProps) {
-    console.log(formValues);
-    NewsletterAPI(formValues);
-    // onSubmittingProps.resetForm();
+    const success = NewsletterAPI(formValues);
+    if (success) {
+      onSubmittingProps.resetForm();
+      console.log("Vos donnees ont ete enregistrees.");
+      alert("Vous etes enregistrez.");
+      return (
+        <FormValidated
+          show={true}
+          title="Titre de la boîte modale"
+          content="Contenu de la boîte modale"
+        />
+      );
+    } else {
+      console.log(
+        "Une erreur c'est produite. Vos donnees n'ont pas ete enregistrees, veuillez reeseyer."
+      );
+      alert("Vous etes pas enregistrez.");
+    }
   }
 
   return (
@@ -42,6 +58,11 @@ function Newsletter() {
       data-aos="zoom-in-top"
       data-aos-duration="1000"
     >
+      <FormValidated
+        show={true}
+        title="Titre de la boîte modale"
+        content="Contenu de la boîte modale"
+      />
       <div className="card-header border-0 my-2 bg-transparent d-flex align-items-center text-primary">
         <span className="bg-primary fs-3 px-3 py-2 me-3 rounded-circle bi bi-person-plus-fill text-light"></span>
         <h3 className="fw-bold text-break fs-3 text-light">Newsletter</h3>
@@ -56,49 +77,49 @@ function Newsletter() {
             <Form>
               <div className="mb-3">
                 <label
-                  htmlFor="firstName"
+                  htmlFor="nom"
                   className="form-label fw-medium text-light"
                 >
                   Nom
                 </label>
                 <Field
-                  id="firstName"
+                  id="nom"
                   type="text"
-                  name="firstName"
+                  name="nom"
                   maxLength="30"
                   spellCheck
                   placeholder="Ex: Doe"
                   className={`form-control text-primary bg-light ${
-                    formik.errors.firstName ? "is-invalid" : ""
+                    formik.errors.nom ? "is-invalid" : ""
                   }`}
                 />
                 <ErrorMessage
                   className="invalid-feedback text-light"
-                  name="firstName"
+                  name="nom"
                   component="span"
                 />
               </div>
               <div className="mb-3">
                 <label
-                  htmlFor="lastName"
+                  htmlFor="prenom"
                   className="form-label fw-medium text-light"
                 >
                   P&eacute;nom
                 </label>
                 <Field
-                  id="lastName"
+                  id="prenom"
                   type="text"
-                  name="lastName"
+                  name="prenom"
                   maxLength="30"
                   spellCheck
                   placeholder="Ex: Landry"
                   className={`form-control text-primary bg-light ${
-                    formik.errors.lastName ? "is-invalid" : ""
+                    formik.errors.prenom ? "is-invalid" : ""
                   }`}
                 />
                 <ErrorMessage
                   className="invalid-feedback text-light"
-                  name="lastName"
+                  name="prenom"
                   component="span"
                 />
               </div>

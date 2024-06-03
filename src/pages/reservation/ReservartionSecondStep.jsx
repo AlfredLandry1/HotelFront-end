@@ -20,6 +20,7 @@ import avatar2 from "../../assets/imgs/avatars/2.png";
 import avatar3 from "../../assets/imgs/avatars/3.png";
 import avatar4 from "../../assets/imgs/avatars/4.png";
 import Footer from "../../components/footer";
+import Drinks from "../../apis/Drinks";
 
 const validationSchema = Yup.object().shape({
   commingDate: Yup.date().required("Choisissez une date"),
@@ -51,15 +52,32 @@ function ReservationSecondStep() {
     goingDate: localStorage.getItem("ReservationPartOfStepTwo")
       ? JSON.parse(localStorage.getItem("ReservationPartOfStepTwo")).goingDate
       : "",
-    bedroom: "",
+    bedroom: [],
     adultNumber: 1,
     childrenNumber: 1,
     houre: "",
   };
 
   function handleSubmit(formValues, onSubmittingProps) {
-    console.log(formValues);
+    try {
+      localStorage.setItem("ReservationStepTwo", JSON.stringify(formValues));
+    } catch (e) {
+      alert("Une erreur c'est produite. veillez reeseller . . .");
+      console.error(
+        "Une erreur c'est produite lors de l'ajout des donnees en memoire",
+        e
+      );
+    }
+
     onSubmittingProps.resetForm();
+    window.location.href = "/ReservationThirdStep";
+  }
+
+  const success = Drinks();
+  if (success) {
+    console.log(success)
+  } else {
+    console.log("bad");
   }
 
   return (
@@ -79,6 +97,18 @@ function ReservationSecondStep() {
                   <span className="bi bi-arrow-left"></span>
                   Pr&eacute;c&eacute;dent
                 </Link>
+                {localStorage.getItem("ReservationStepThree") ? (
+                  <div className="text-sm-end">
+                    <Link
+                      to="/ReservationThirdStep"
+                      className="text-decoration-none fs-5 text-secondary"
+                    >
+                      Suivant <span className="bi bi-arrow-right"></span>
+                    </Link>
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
               <div className="card-header border-0 my-3 bg-transparent text-primary">
                 <h3 className="fw-bold fs-1">Reservation . . .</h3>
@@ -88,13 +118,13 @@ function ReservationSecondStep() {
                   recommandons donc de fournir des informations validees.
                 </p>
                 <p className="text-justify">
-                  Nous vous recommandons de consulter notre page de{" "}
+                  Nous vous recommandons de consulter notre page de
                   <Link
                     to="/bedroom"
                     className="text-primary fw-bold text-decoration-none"
                   >
                     chambre
-                  </Link>{" "}
+                  </Link> 
                   avant de choisir une chambre pour votre reservation.
                 </p>
               </div>
@@ -197,6 +227,7 @@ function ReservationSecondStep() {
                             type="number"
                             placeholder="Ex: 2"
                             min="1"
+                            max="2"
                             required
                             className={`form-control text-primary ${
                               formik.errors.adultNumber ? "is-invalid" : ""
@@ -214,7 +245,10 @@ function ReservationSecondStep() {
                             htmlFor="childrenNumber"
                             className="form-label fw-medium"
                           >
-                            Nbre d'enfant(s)
+                            Nbre d'enfants
+                            <span className="badge text-muted text-secondary">
+                              (02 / chambre)
+                            </span>
                           </label>
                           <Field
                             name="childrenNumber"
@@ -222,6 +256,7 @@ function ReservationSecondStep() {
                             type="number"
                             placeholder="Ex: 1"
                             min="1"
+                            max="2"
                             required
                             className={`form-control text-primary ${
                               formik.errors.childrenNumber ? "is-invalid" : ""
@@ -239,7 +274,7 @@ function ReservationSecondStep() {
                             htmlFor="houre"
                             className="form-label fw-medium"
                           >
-                            Date et heure d'arriv&eacute;e
+                            Heure d'arriv&eacute;e
                           </label>
                           <Field
                             name="houre"
@@ -270,8 +305,8 @@ function ReservationSecondStep() {
                           className="form-check-label text-breack mb-5"
                           htmlFor="consentement"
                         >
-                          En cliquant sur suivant vous acceptez{" "}
-                          <Link>la politique de l'hotel</Link> et sa{" "}
+                          En cliquant sur suivant vous acceptez 
+                          <Link>la politique de l'hotel</Link> et sa 
                           <Link to="">
                             la politique de confidentialit&eacute;
                           </Link>

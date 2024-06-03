@@ -1,20 +1,17 @@
 import Axios from "./Axios";
 
-const NewsletterAPI = async (data) => {
+const Drinks = async () => {
   try {
-    const response = await Axios.post("/newsletters/", data, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await Axios.get("/boissons/");
 
     if (response.status === 201) {
       // L'inscription a réussi
+      console.log("bien");
       return true;
     } else {
       // Une erreur s'est produite
       const error = new Error(
-        `Newsletter subscription failed: ${response.status}`
+        `Drinks request failed: ${response.status}`
       );
       throw error;
     }
@@ -24,4 +21,4 @@ const NewsletterAPI = async (data) => {
   }
 };
 
-export default NewsletterAPI;
+export default Drinks;

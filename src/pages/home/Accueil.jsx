@@ -32,7 +32,7 @@ function Acceuil() {
       <BannerNavbar
         activeLink="accueil"
         bannerImage={bannerImage}
-        brandText="Une experience innoubliable en bordure de plague vous y attends."
+        brandText="Une experience inoubliable en bordure de plage vous y attend."
         descriptionText="ipsum dolor sit amet consectetur adipisicing elit. Neque numquam beatae, sint harum, totam iure doloribus explicabo incidunt praesentium odio in dolore aspernatur consectetur quidem saepe labore aliquam nihil optio."
         iconName="bi bi-calendar-check-fill"
         alertMessage="Le paquebot hotel vous souhaites une bonne navigation."
@@ -67,7 +67,7 @@ function Acceuil() {
                 Sapiente, accusamus laudantium? Labore impedit dolorum facilis
                 dolore aliquam, neque fugit quia ullam tempora voluptates sint,
                 laborum, inventore commodi incidunt adipisci maiores!"
-          whitBtn="yes"
+          // whitBtn="yes"
           linkName="Voir plus"
           iconName="bi bi-arrow-right-short"
           cardImg={cardImg1}
@@ -78,7 +78,7 @@ function Acceuil() {
                 Sapiente, accusamus laudantium? Labore impedit dolorum facilis
                 dolore aliquam, neque fugit quia ullam tempora voluptates sint,
                 laborum, inventore commodi incidunt adipisci maiores!"
-          whitBtn="yes"
+          // whitBtn="yes"
           linkName="Voir plus"
           iconName="bi bi-arrow-right-short"
           cardImg={cardImg2}
